@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sreo <sreo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/14 13:56:48 by sreo              #+#    #+#             */
-/*   Updated: 2024/07/14 17:28:38 by sreo             ###   ########.fr       */
+/*   Created: 2024/04/15 21:29:36 by sreo              #+#    #+#             */
+/*   Updated: 2024/05/09 16:23:43 by sreo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf/ft_printf.h"
+#include "libft.h"
 
-int main(void){
-    ft_printf("Server PID %d\n", getpid());
-    return 0;
+int	ft_isprint(int c)
+{
+	if (' ' <= c && c <= '~')
+		return (1);
+	else
+		return (0);
 }

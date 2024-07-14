@@ -1,33 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sreo <sreo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/20 15:14:19 by sreo              #+#    #+#             */
-/*   Updated: 2024/05/20 19:33:42 by sreo             ###   ########.fr       */
+/*   Created: 2024/04/23 21:36:24 by sreo              #+#    #+#             */
+/*   Updated: 2024/05/09 13:22:23 by sreo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef LIBFT_H
+# define LIBFT_H
 
 # include <limits.h>
-# include <stdarg.h>
-# include <stddef.h>
 # include <stdint.h>
-# include <stdlib.h>
 # include <unistd.h>
-
-int		ft_printf(const char *format, ...);
-int		format_processor(char sign, va_list args);
-int		ft_putchr(int c);
-int		ft_putstr(char *str);
-int		ft_putptr(unsigned long long ptr);
-int		ft_putnbr(int nbr);
-int		ft_uitoa(unsigned int n);
-int		ft_itoh(unsigned int nbr, char sign);
+# include <stdlib.h>
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -63,5 +52,4 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-
 #endif

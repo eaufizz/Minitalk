@@ -3,36 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sreo <sreo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 16:41:35 by sreo              #+#    #+#             */
-/*   Updated: 2024/05/19 01:02:01 by marvin           ###   ########.fr       */
+/*   Created: 2024/05/20 15:14:09 by sreo              #+#    #+#             */
+/*   Updated: 2024/05/20 21:35:56 by sreo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_printf(const char *format, ...)
+void	errorcheck(int *count, int value)
 {
-	int i;
-	int count;
-	
+	if (value == -1)
+		*count = -1;
+	else
+		*count += value;
+}
+
+int	ft_printf(const char *format, ...)
+{
+	int		i;
+	int		count;
+	va_list	args;
+
 	i = 0;
 	count = 0;
-	va_list args;
 	va_start(args, format);
-	while(format[i])
+	while (format[i] && count != -1)
 	{
-		if(format[i] == '%' && format[i + 1])
+		if (format[i] == '%' && format[i + 1])
 		{
-			if(format[i + 1] == '%')
-				count += ft_putchr(format[++i]);
+			if (format[i + 1] == '%')
+				errorcheck(&count, ft_putchr(format[++i]));
 			else
-				count += format_processor(format[++i], args);
+				errorcheck(&count, format_processor(format[++i], args));
 		}
 		else
-			count += ft_putchr(format[i]);
+			errorcheck(&count, ft_putchr(format[i]));
 		i++;
 	}
-	return count;
+	return (count);
 }

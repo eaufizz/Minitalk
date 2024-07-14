@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sreo <sreo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/14 13:56:48 by sreo              #+#    #+#             */
-/*   Updated: 2024/07/14 17:28:38 by sreo             ###   ########.fr       */
+/*   Created: 2024/04/16 13:13:05 by sreo              #+#    #+#             */
+/*   Updated: 2024/05/09 16:35:58 by sreo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf/ft_printf.h"
+#include "libft.h"
 
-int main(void){
-    ft_printf("Server PID %d\n", getpid());
-    return 0;
+void	*ft_memset(void *s, int c, size_t n)
+{
+	size_t			i;
+	unsigned char	*p;
+
+	i = 0;
+	p = (unsigned char *)s;
+	while (i < n)
+	{
+		p[i] = c;
+		i++;
+	}
+	return (s);
 }

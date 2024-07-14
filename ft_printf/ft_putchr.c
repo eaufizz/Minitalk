@@ -3,17 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sreo <sreo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 23:53:06 by marvin            #+#    #+#             */
-/*   Updated: 2024/05/16 23:53:06 by marvin           ###   ########.fr       */
+/*   Created: 2024/05/20 21:36:08 by sreo              #+#    #+#             */
+/*   Updated: 2024/05/20 21:36:08 by sreo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_putchr(int c)
+int	ft_putchr(int c)
 {
-    write(1, &c, 1);
-    return 1;
+	if (write(1, &c, 1) == 1)
+		return (1);
+	else
+		return (-1);
 }

@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sreo <sreo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/14 13:56:48 by sreo              #+#    #+#             */
-/*   Updated: 2024/07/14 17:28:38 by sreo             ###   ########.fr       */
+/*   Created: 2024/04/16 15:13:50 by sreo              #+#    #+#             */
+/*   Updated: 2024/05/09 16:38:20 by sreo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf/ft_printf.h"
+#include "libft.h"
 
-int main(void){
-    ft_printf("Server PID %d\n", getpid());
-    return 0;
+void	ft_bzero(void *s, size_t n)
+{
+	size_t			i;
+	unsigned char	*p;
+
+	i = 0;
+	p = (unsigned char *)s;
+	while (i < n)
+	{
+		p[i] = '\0';
+		i++;
+	}
 }

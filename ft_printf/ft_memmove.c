@@ -1,18 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sreo <sreo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/14 13:56:48 by sreo              #+#    #+#             */
-/*   Updated: 2024/07/14 17:28:38 by sreo             ###   ########.fr       */
+/*   Created: 2024/04/16 14:28:40 by sreo              #+#    #+#             */
+/*   Updated: 2024/05/09 16:24:06 by sreo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf/ft_printf.h"
+#include "libft.h"
 
-int main(void){
-    ft_printf("Server PID %d\n", getpid());
-    return 0;
+void	*ft_memmove(void *buf1, const void *buf2, size_t n)
+{
+	size_t			i;
+	unsigned char	*p;
+	unsigned char	*c;
+
+	c = (unsigned char *)buf2;
+	p = (unsigned char *)buf1;
+	i = -1;
+	if (!buf1 && !buf2)
+		return (NULL);
+	if (p > c && p < c + n)
+		while (++i < n)
+			p[n - i - 1] = c[n - i - 1];
+	else
+		while (++i < n)
+			p[i] = c[i];
+	return (buf1);
 }

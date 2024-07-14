@@ -1,5 +1,5 @@
 NAME = libftprintf.a 
-LIBFT = libft/libft.a
+
 SRCS = \
 		ft_printf.c \
 		format_processor.c \
@@ -8,10 +8,7 @@ SRCS = \
 		ft_putptr.c \
 		ft_putnbr.c \
 		ft_uitoa.c \
-		ft_itoh.c
-
-OBJS = $(SRCS:.c=.o)
-LSRCS =  \
+		ft_itoh.c \
 		ft_isalpha.c\
 		ft_isdigit.c\
 		ft_isalnum.c\
@@ -46,21 +43,20 @@ LSRCS =  \
 		ft_putstr_fd.c\
 		ft_putendl_fd.c\
 		ft_putnbr_fd.c
+
 OBJS = $(SRCS:.c=.o)
+
 CC = cc -Wall -Wextra -Werror
 
 all: $(NAME)
-$(NAME): $(OBJS) $(LIBFT)
-	ar rcs $(NAME) $(OBJS) $(LIBFT)
-$(OBJS): $(SRCS) $(LIBFT)
-	$(CC) -c $< -o $@ -Ilibft
-$(LIBFT): 
-	make -C libft
+$(NAME): $(OBJS) 
+	ar rcs $(NAME) $(OBJS)
+$(OBJS): $(SRCS) 
+	$(CC) -c $(SRCS)
+
 clean:
 	rm -f $(OBJS)
-	make clean -C libft
 fclean: clean
 	rm -f $(NAME)
-	make fclean -C libft
 re: fclean all
 .PHONY:all clean fclean re

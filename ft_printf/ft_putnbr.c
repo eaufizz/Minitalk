@@ -3,22 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sreo <sreo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/18 14:30:30 by marvin            #+#    #+#             */
-/*   Updated: 2024/05/18 14:30:30 by marvin           ###   ########.fr       */
+/*   Created: 2024/05/20 15:25:52 by sreo              #+#    #+#             */
+/*   Updated: 2024/05/20 15:25:52 by sreo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_putnbr(int nbr)
+int	ft_putnbr(int nbr)
 {
-    int count;
-    char *str;
+	int		count;
+	char	*str;
 
-    str = ft_itoa(nbr);
-    count = ft_putstr(str);
-    free(str);
-    return count;
+	str = ft_itoa(nbr);
+	if (str == NULL)
+		return (-1);
+	count = ft_putstr(str);
+	free(str);
+	return (count);
 }
