@@ -11,9 +11,7 @@ client:client.c $(LIB)
 	$(CC) -o client client.c $(LIB)
 
 $(LIB):
-	cd ft_printf
-	make
-	cd ..
+	make -C ft_printf all
 
 clean:
 	make -C ft_printf clean
