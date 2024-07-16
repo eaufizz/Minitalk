@@ -6,14 +6,29 @@
 /*   By: sreo <sreo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 13:56:48 by sreo              #+#    #+#             */
-/*   Updated: 2024/07/14 19:39:22 by sreo             ###   ########.fr       */
+/*   Updated: 2024/07/16 20:42:27 by sreo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf/ft_printf.h"
-void print_message(int sig)
+#include <signal.h>
+
+static void print_message(int sig)
 {
-    ft_printf("good");
+    static int bit_count = 0;
+    static unsigned char bit_letter = 0;
+
+    if(sig == SIGUSR2)
+        bit_letter |= 1;
+    bit_count ++;
+    if(bit_count == 8)
+    {
+        write(1, &bit_letter, 1);
+        bit_count = 0;
+        bit_letter = 0;
+    }
+    else
+        bit_letter <<= 1;
 }
 
 int main(void){
